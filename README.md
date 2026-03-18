@@ -25,14 +25,14 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [ X] Describe the game's purpose.
+- [ X] Detail which bugs you found.
+- [ X] Explain what fixes you applied.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
-
+- [ X] [Insert a screenshot of your fixed, winning game here]
+![alt text](<Screenshot 2026-03-18 at 1.03.01 AM.png>)
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
