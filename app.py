@@ -10,7 +10,6 @@ def get_range_for_difficulty(difficulty: str):
         return 1, 50
     return 1, 100
 
-
 def parse_guess(raw: str):
     if raw is None:
         return False, None, "Enter a guess."
@@ -34,11 +33,14 @@ def check_guess(guess, secret):
         return "Win", "🎉 Correct!"
 
     try:
+        # FIXME: Logic breaks here — HIGH/LOW hints are reversed
         if guess > secret:
             return "Too High", "📈 Go HIGHER!"
         else:
             return "Too Low", "📉 Go LOWER!"
     except TypeError:
+        # FIXME: This fallback exists because secret sometimes becomes a string
+        # which should not happen in the first place
         g = str(guess)
         if g == secret:
             return "Win", "🎉 Correct!"
@@ -133,7 +135,10 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
+    
+    #FIXME: New game ignores difficulty range (should use low, high)
     st.session_state.secret = random.randint(1, 100)
+
     st.success("New game started.")
     st.rerun()
 
@@ -155,6 +160,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
+        # FIXME: Secret randomly becomes string — causes broken comparisons
         if st.session_state.attempts % 2 == 0:
             secret = str(st.session_state.secret)
         else:
